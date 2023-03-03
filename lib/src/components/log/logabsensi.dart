@@ -3,15 +3,23 @@ import '../textstyle/title.dart';
 import 'package:zainozoho/src/data/datauser/dataperson.dart';
 
 //kelas ini untuk membuat template log absensi
-class LogAbsensi extends StatelessWidget {
-  LogAbsensi({super.key});
+
+class LogAbsensi extends StatefulWidget {
+  const LogAbsensi({super.key});
+
+  @override
+  State<LogAbsensi> createState() => _LogAbsensiState();
+}
+
+class _LogAbsensiState extends State<LogAbsensi> {
   final styles = KTextStyle();
+
   final data = DataUser();
+
   bool boolclockout = true;
 
   @override
   Widget build(BuildContext context) {
-    String clockout = "";
     //Container pada saat jika ada log absen maka kontainer ini akan muncul
     //dan menampilkn widget template yang telah saya buat di bawah
     return Column(

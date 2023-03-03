@@ -1,39 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:zainozoho/src/models/mysqlconnection.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class KListTileKaryawan extends StatefulWidget {
-  const KListTileKaryawan({super.key});
+// import 'package:zainozoho/src/models/mysqlconnection.dart';
 
-  @override
-  State<KListTileKaryawan> createState() => _KListTileKaryawanState();
-}
-
-class _KListTileKaryawanState extends State<KListTileKaryawan> {
-  var db = MySql();
-  var nama = "";
-
-  void getMahasiswa() {
-    db.getConnection().then((conn) {
-      String sql = "select nama from mahasiswa where kelas = '3b1';";
-      conn.query(sql).then((result) {
-        setState(() {
-          for (var row in result) {
-            setState(() {
-              nama = row[0];
-            });
-          }
-        });
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(nama),
-      leading: const CircleAvatar(
-        backgroundImage: NetworkImage(''),
+class ListTileKaryawan {
+  template(
+      {required String nama,
+      required String jabatan,
+      required String urlimage,
+      required String phone}) {
+    return Column(children: [
+      const SizedBox(height: 10),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            backgroundImage: NetworkImage(urlimage),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                nama,
+                style: const TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(jabatan, style: const TextStyle(fontFamily: "Inter"))
+            ],
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/karyawan/phone.svg'),
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/karyawan/mail.svg'),
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/karyawan/wa.svg'),
+          )
+        ],
       ),
-    );
+      const SizedBox(height: 10),
+      const Divider(
+        color: Colors.black12,
+      )
+    ]);
   }
 }

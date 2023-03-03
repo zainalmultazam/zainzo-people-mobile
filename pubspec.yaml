@@ -96,6 +96,7 @@ flutter:
     - assets/icons/
     - assets/ic_launcher/
     - assets/splash/
+    - assets/icons/karyawan/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

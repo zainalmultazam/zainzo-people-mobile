@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
           SizedBox(
             child: data.logabsen.isEmpty
                 ? LogKosong(styledata: styledata)
-                : LogAbsensi(),
+                : const LogAbsensi(),
           ),
         ],
       ),

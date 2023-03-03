@@ -12,10 +12,10 @@ class ClockIn extends StatefulWidget {
   const ClockIn({super.key});
 
   @override
-  _ClockInState createState() => _ClockInState();
+  ClockInState createState() => ClockInState();
 }
 
-class _ClockInState extends State<ClockIn> {
+class ClockInState extends State<ClockIn> {
   // final _key = GlobalKey<FormState>();
   Position? _position;
   String? _address;

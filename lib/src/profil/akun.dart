@@ -229,11 +229,13 @@ class _AkunState extends State<Akun> {
                       ),
                       CupertinoDialogAction(
                         onPressed: () {
-                          logindata!.setBool('login', true);
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
+                          setState(() {
+                            logindata!.setBool('login', true);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()));
+                          });
                         },
                         isDestructiveAction: true,
                         child: const Text(

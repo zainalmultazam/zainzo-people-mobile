@@ -49,8 +49,10 @@ class _LoginPageState extends State<LoginPage> {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata.getBool('login') ?? true);
     if (newuser == false) {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const NavMainPage()));
+      setState(() {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const NavMainPage()));
+      });
     }
   }
 

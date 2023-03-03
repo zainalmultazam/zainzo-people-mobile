@@ -5,9 +5,11 @@ class ListTiles {
   listtile(
       {required String text,
       required Function(bool? value) onchange,
-      required bool values}) {
+      required bool values,
+      String? time}) {
     return ListTile(
       title: Text(text),
+      subtitle: values == true ? Text("$time") : const SizedBox.shrink(),
       trailing: CupertinoSwitch(
         value: values,
         activeColor: Colors.red,
