@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LihatLogAbsensi extends StatefulWidget {
-  String? bulan;
-  LihatLogAbsensi({super.key, required this.bulan});
+  final String? bulan;
+  const LihatLogAbsensi({super.key, required this.bulan});
 
   @override
   State<LihatLogAbsensi> createState() => _LihatLogAbsensiState();

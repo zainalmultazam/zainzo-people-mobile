@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BerhasilCInCout extends StatefulWidget {
-  String? timeclockin;
-  String? datetimeclockin;
-  BerhasilCInCout(
+  final String? timeclockin;
+  final String? datetimeclockin;
+
+  const BerhasilCInCout(
       {super.key, required this.timeclockin, required this.datetimeclockin});
 
   @override
