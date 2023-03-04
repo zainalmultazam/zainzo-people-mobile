@@ -1,0 +1,200 @@
+ // @override
+  // Widget build(BuildContext context) {
+  //   jumlahkaryawan = datakaryawan.length;
+  //   return SafeArea(
+  //     child: ListView(
+  //       padding: const EdgeInsets.only(left: 18, top: 20, right: 18),
+  //       children: [
+  //         //Jumlah karyawan
+  //         Text(
+  //           "Karyawan $jumlahkaryawan",
+  //           style: const TextStyle(
+  //               fontFamily: "Inter", fontSize: 16, fontWeight: FontWeight.bold),
+  //         ),
+
+  //         const SizedBox(height: 10),
+
+  //         //Search Bar
+  //         TextField(
+  //           onChanged: (value) => runFilter(value),
+  //           decoration: InputDecoration(
+  //             contentPadding: const EdgeInsets.all(17),
+  //             border: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(15),
+  //                 borderSide: const BorderSide(color: Colors.black12)),
+  //             hintText: "Cari",
+  //             prefixIcon: SvgPicture.asset(
+  //               'assets/icons/search.svg',
+  //               fit: BoxFit.scaleDown,
+  //             ),
+  //           ),
+  //         ),
+  //         const SizedBox(
+  //           height: 10,
+  //         ),
+  //         Column(
+  //           children: datakaryawan.map((e) {
+  //             return Column(
+  //                 crossAxisAlignment: CrossAxisAlignment.start,
+  //                 children: [
+  //                   const SizedBox(height: 10),
+  //                   Row(
+  //                     mainAxisAlignment: MainAxisAlignment.start,
+  //                     crossAxisAlignment: CrossAxisAlignment.center,
+  //                     children: [
+  //                       GestureDetector(
+  //                         onTap: () {
+  //                           Navigator.push(
+  //                             context,
+  //                             MaterialPageRoute(
+  //                               builder: (context) {
+  //                                 return Scaffold(
+  //                                   appBar: AppBar(
+  //                                     backgroundColor: Colors.grey.shade100,
+  //                                     leading: IconButton(
+  //                                         onPressed: () {
+  //                                           Navigator.pop(context);
+  //                                         },
+  //                                         icon: const Icon(
+  //                                           Icons.arrow_back_ios,
+  //                                           size: 19,
+  //                                         )),
+  //                                   ),
+  //                                   body: ListView(
+  //                                     children: [
+  //                                       Container(
+  //                                         color: Colors.grey.shade100,
+  //                                         width:
+  //                                             MediaQuery.of(context).size.width,
+  //                                         height: 220,
+  //                                         child: Column(
+  //                                           children: [
+  //                                             CircleAvatar(
+  //                                               backgroundImage: NetworkImage(
+  //                                                   "${e['imageurl']}"),
+  //                                               radius: 40,
+  //                                             ),
+  //                                             const SizedBox(height: 15),
+  //                                             Text("${e['nama']}",
+  //                                                 style: style.midstyletext),
+  //                                             Text("${e['jabatan']}",
+  //                                                 style: style.smaller),
+  //                                             const SizedBox(height: 12),
+  //                                             Container(
+  //                                               color: Colors.transparent,
+  //                                               child: Row(
+  //                                                 mainAxisAlignment:
+  //                                                     MainAxisAlignment.center,
+  //                                                 children: [
+  //                                                   IconButton(
+  //                                                       onPressed: () {},
+  //                                                       icon: SvgPicture.asset(
+  //                                                           'assets/icons/karyawan/phone.svg')),
+  //                                                   IconButton(
+  //                                                       onPressed: () {},
+  //                                                       icon: SvgPicture.asset(
+  //                                                           'assets/icons/karyawan/mail.svg')),
+  //                                                   IconButton(
+  //                                                       onPressed: () {},
+  //                                                       icon: SvgPicture.asset(
+  //                                                           'assets/icons/karyawan/wa.svg')),
+  //                                                 ],
+  //                                               ),
+  //                                             )
+  //                                           ],
+  //                                         ),
+  //                                       ),
+  //                                       // ExpansionPanelList(
+  //                                       //   expansionCallback: ((panelIndex, isExpanded){
+  //                                       //     setState(() {
+
+  //                                       //     });
+  //                                       //   }),
+  //                                       // )
+  //                                     ],
+  //                                   ),
+  //                                 );
+  //                               },
+  //                             ),
+  //                           );
+  //                         },
+  //                         child: Container(
+  //                           width: 50,
+  //                           height: 50,
+  //                           color: Colors.transparent,
+  //                           child: CircleAvatar(
+  //                             backgroundImage: NetworkImage("${e['imageurl']}"),
+  //                           ),
+  //                         ),
+  //                       ),
+  //                       const SizedBox(width: 10),
+  //                       GestureDetector(
+  //                         onTap: () {
+  //                           // Navigator.push(
+  //                           //   context,
+  //                           //   MaterialPageRoute(
+  //                           //     builder: (contxt) => DetailProfile(
+  //                           //         nama: "${e['nama']}",
+  //                           //         jabatan: "${e['jabatan']}",
+  //                           //         urlimage: "${e['imageurl']}"),
+  //                           //   ),
+  //                           // );
+  //                         },
+  //                         child: Container(
+  //                           width: 200,
+  //                           height: 50,
+  //                           color: Colors.transparent,
+  //                           child: Column(
+  //                             crossAxisAlignment: CrossAxisAlignment.start,
+  //                             children: [
+  //                               Text(
+  //                                 "${e['nama']}",
+  //                                 maxLines: 1,
+  //                                 style: const TextStyle(
+  //                                     fontFamily: "Inter",
+  //                                     fontSize: 17,
+  //                                     fontWeight: FontWeight.bold),
+  //                               ),
+  //                               Text("${e['jabatan']}",
+  //                                   style: const TextStyle(fontFamily: "Inter"))
+  //                             ],
+  //                           ),
+  //                         ),
+  //                       ),
+  //                       Container(
+  //                         color: Colors.transparent,
+  //                         width: 90,
+  //                         child: Row(
+  //                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //                           children: [
+  //                             GestureDetector(
+  //                               onTap: () {},
+  //                               child: SvgPicture.asset(
+  //                                   'assets/icons/karyawan/phone.svg'),
+  //                             ),
+  //                             GestureDetector(
+  //                               onTap: () {},
+  //                               child: SvgPicture.asset(
+  //                                   'assets/icons/karyawan/mail.svg'),
+  //                             ),
+  //                             GestureDetector(
+  //                               onTap: () {},
+  //                               child: SvgPicture.asset(
+  //                                   'assets/icons/karyawan/wa.svg'),
+  //                             )
+  //                           ],
+  //                         ),
+  //                       )
+  //                     ],
+  //                   ),
+  //                   const SizedBox(height: 10),
+  //                   const Divider(
+  //                     color: Colors.black12,
+  //                   )
+  //                 ]);
+  //           }).toList(),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }

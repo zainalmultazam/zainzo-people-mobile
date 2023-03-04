@@ -6,6 +6,8 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:zainozoho/src/components/containerjam/berhasilclockouuin.dart';
 import '../button.dart';
 
 class ClockIn extends StatefulWidget {
@@ -17,6 +19,9 @@ class ClockIn extends StatefulWidget {
 
 class ClockInState extends State<ClockIn> {
   // final _key = GlobalKey<FormState>();
+  final timeclockin = DateFormat('HH:mm').format(DateTime.now()).toString();
+  final dateclockin = DateFormat.yMMMMd().format(DateTime.now()).toString();
+  bool clockin = true;
   Position? _position;
   String? _address;
   String jarak = "", catatan = "", waktu = "";
@@ -164,9 +169,7 @@ class ClockInState extends State<ClockIn> {
               icon: const Icon(Icons.camera_alt_outlined))
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -235,6 +238,15 @@ class ClockInState extends State<ClockIn> {
           "Clock In",
           () {
             cekJarak();
+            if (clockin == true) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BerhasilCInCout(
+                            timeclockin: timeclockin,
+                            datetimeclockin: dateclockin,
+                          )));
+            }
             setState(() {
               catatan = _controllerCatatan.text;
             });

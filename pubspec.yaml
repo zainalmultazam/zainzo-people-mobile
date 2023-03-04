@@ -53,6 +53,7 @@ dependencies:
   connectivity_plus: ^3.0.3
   internet_connection_checker: ^1.0.0+1
   introduction_screen: ^3.1.6
+  url_launcher: ^6.1.10
 
 
   # The following adds the Cupertino Icons font to your application.

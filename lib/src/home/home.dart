@@ -4,6 +4,7 @@ import '../components/textstyle/title.dart';
 import '../components/containerjam/containerjam.dart';
 import '../components/log/logabsensi.dart';
 import '../components/log/logkosong.dart';
+import '../home/lihatlog.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
           'https://media.licdn.com/dms/image/D4D03AQFm99I7ryL32g/profile-displayphoto-shrink_800_800/0/1675770329460?e=2147483647&v=beta&t=UNyN1z4W5ardwjKP0SRZlpEUM27aYst7ANbkWqkYQGM');
 
   final styledata = KTextStyle();
+  String bulan = 'Februari';
 
   //inisialisasi bool jika tidak ada data log absensi
   bool logada = false;
@@ -63,10 +65,27 @@ class _HomeState extends State<Home> {
           const SizedBox(height: 20),
 
           //widget text log absen
-          Text(
-            'Log Absensi',
-            style: styledata.midstyletext,
-          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(
+              'Log Absensi',
+              style: styledata.midstyletext,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LihatLogAbsensi(bulan: bulan)));
+              },
+              child: Text(
+                'Lihat Log',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 15,
+                    color: Colors.grey.shade600),
+              ),
+            )
+          ]),
 
           const SizedBox(height: 10),
 
